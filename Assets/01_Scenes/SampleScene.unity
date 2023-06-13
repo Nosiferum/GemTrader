@@ -479,7 +479,7 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &761987568
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 10
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &1182832991
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 10
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -637,7 +637,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1584648040
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 10
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -709,6 +709,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: cellSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: gridSizeX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: gridSizeY
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: gemPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: fruitPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: gemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4293757887493237159, guid: b3c875c00503fa6409efc35d5791cdba,
+        type: 3}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: gemPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5854650561273023258, guid: aed24074c72e91542bd7d596a389811f,
+        type: 3}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: gemPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 255898418085217350, guid: cbc12084f67c73745af1645a357ad876,
+        type: 3}
+    - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
+        type: 3}
+      propertyPath: fruitPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 244766027711723365, guid: ce6a10df934324b4e90485413a5e04b2,
+        type: 3}
     - target: {fileID: 6325551130459826599, guid: f94577a883213c944ba574c54e62d089,
         type: 3}
       propertyPath: m_Name
