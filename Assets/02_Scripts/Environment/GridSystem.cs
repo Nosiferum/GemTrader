@@ -12,15 +12,8 @@ namespace GemTrader.Environment
         [SerializeField] private float cellSize;
         [SerializeField] private BaseGem[] gemPrefabs;
     
-        private GridCell[,] _grid; //grid matrix
-    
-        // A convenient struct to access every cells' properties in a grid 
-        private struct GridCell
-        {
-            public bool HasGem;
-            public BaseGem Gem;
-        }
-    
+        private GameObject[,] _grid; //grid matrix
+        
         private void Start()
         {
             CreateGrid();
@@ -28,7 +21,7 @@ namespace GemTrader.Environment
 
         private void CreateGrid()
         {
-            _grid = new GridCell[gridSizeX, gridSizeY];
+            _grid = new GameObject[gridSizeX, gridSizeY];
     
             for (int x = 0; x < gridSizeX; x++)
             {
@@ -42,23 +35,39 @@ namespace GemTrader.Environment
                         transform =
                         {
                             position = cellPosition,
-                            localScale = new Vector3(cellSize, 0.1f, cellSize),
                             parent = transform
                         }
                     };
-
-                    GameObject randomGemPrefab = gemPrefabs[Random.Range(0, gemPrefabs.Length)].gameObject;
-
-                    GameObject gem = Instantiate(randomGemPrefab, cellPosition, Quaternion.identity);
-                    gem.transform.parent = cell.transform;
-
-                    GridCell gridCell;
-                    gridCell.HasGem = true;
-                    gridCell.Gem = gem.GetComponent<Gem>();
                     
-                    _grid[x, y] = gridCell;
+                    _grid[x, y] = cell;
+
+                    CreateGem(x, y);
                 }
             }
+        }
+
+        private void CreateGem(int x, int y)
+        {
+            GameObject randomGemPrefab = gemPrefabs[Random.Range(0, gemPrefabs.Length)].gameObject;
+
+            GameObject gem = Instantiate(randomGemPrefab, _grid[x, y].transform.position, Quaternion.identity);
+            gem.transform.parent = _grid[x, y].transform;
+
+            BaseGem baseGem = gem.GetComponent<BaseGem>();
+
+            baseGem.CellCoordinateX = x;
+            baseGem.CellCoordinateY = y;
+
+            gem.GetComponent<MeshFilter>().sharedMesh = baseGem.Model;
+            //gem.transform.localScale = Vector3.zero;
+            
+        }
+
+        
+        public void RemoveAndRespawnGem(BaseGem gem, int x, int y)
+        {
+            Destroy(gem);
+           // CreateGem(x, y);
         }
     }
 }
