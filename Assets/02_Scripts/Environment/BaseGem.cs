@@ -16,14 +16,13 @@ namespace GemTrader.Environment
        public int CellCoordinateY { get; set; }
 
        protected GridSystem _gridSystem;
-
-       protected void Awake()
+       
+       protected void Start()
        {
            _gridSystem = GetComponentInParent<GridSystem>();
-          
        }
 
-       protected void OnCollisionEnter(Collision other)
+       public void RemoveGem()
        {
            _gridSystem.RemoveAndRespawnGem(this, CellCoordinateX, CellCoordinateY);
        }

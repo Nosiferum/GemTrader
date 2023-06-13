@@ -14,7 +14,7 @@ namespace GemTrader.Environment
     
         private GameObject[,] _grid; //grid matrix
         
-        private void Start()
+        private void Awake()
         {
             CreateGrid();
         }
@@ -66,8 +66,9 @@ namespace GemTrader.Environment
         
         public void RemoveAndRespawnGem(BaseGem gem, int x, int y)
         {
-            Destroy(gem);
-           // CreateGem(x, y);
+           
+            Destroy(gem.gameObject);
+            CreateGem(x, y);
         }
     }
 }

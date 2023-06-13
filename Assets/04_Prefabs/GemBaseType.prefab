@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5919972267759375984}
   - component: {fileID: 7316147058828188117}
   - component: {fileID: 4786442075227417887}
-  - component: {fileID: -3963486403240528376}
-  - component: {fileID: -4756841477405361325}
+  - component: {fileID: -4600362314343697028}
+  - component: {fileID: 6815808088975723693}
   m_Layer: 0
   m_Name: GemBaseType
   m_TagString: Untagged
@@ -85,7 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-3963486403240528376
+--- !u!65 &-4600362314343697028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443568894346415306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.497228, y: 1.5119847, z: 1.497228}
+  m_Center: {x: 0, y: -0.21877271, z: 0}
+--- !u!114 &6815808088975723693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,17 +115,3 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <Model>k__BackingField: {fileID: 4126542436946315128, guid: e9caca45ea7ee084aa79498e1fdc23a2,
     type: 3}
---- !u!64 &-4756841477405361325
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6443568894346415306}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4126542436946315128, guid: e9caca45ea7ee084aa79498e1fdc23a2, type: 3}
