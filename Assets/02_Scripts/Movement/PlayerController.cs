@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using DG.Tweening;
 using GemTrader.Environment;
 using UnityEngine;
 
@@ -9,13 +12,15 @@ namespace GemTrader.Control
     {
         [SerializeField] private float verticalSpeed = 5f;
         [SerializeField] private float horizontalSpeed = 5f;
+        [SerializeField] private Transform stackTransform;
+        [SerializeField] private float gemStackLerpTime = 5f;
 
         private List<BaseGem> _gems = new();
 
         private FloatingJoystick _floatingJoystick;
         private Rigidbody _rb;
         private Animator _animator;
-
+        
         private static readonly int IsRunning = Animator.StringToHash("isRunning");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
 
@@ -24,6 +29,11 @@ namespace GemTrader.Control
             _animator = GetComponent<Animator>();
             _rb = GetComponent<Rigidbody>();
             _floatingJoystick = FindObjectOfType<FloatingJoystick>();
+        }
+
+        private void Update()
+        {
+            StackGems();
         }
 
         private void FixedUpdate()
@@ -55,7 +65,7 @@ namespace GemTrader.Control
 
             else
             {
-                SetMovementAnimation(false,false);
+                SetMovementAnimation(false, false);
             }
         }
 
@@ -74,20 +84,50 @@ namespace GemTrader.Control
 
         private void OnTriggerStay(Collider other)
         {
-            if (other.TryGetComponent(out BaseGem gem))
+            if (other.GetComponentInParent<GridSystem>())
             {
-                other.GetComponentInParent<GridSystem>()
-                    .RemoveAndRespawnGem(gem, gem.CellCoordinateX, gem.CellCoordinateY);
+                BaseGem gem = other.GetComponent<BaseGem>();
+                AddGems(gem);
             }
+        }
 
-            //this commented code is more extensible however, the former one is more clean
-            
-            /*if (other.GetComponentInParent<GridSystem>())
+        private void AddGems(BaseGem gem)
+        {
+            if (gem.isReadyToHarvest)
             {
-                BaseGem baseGem = other.GetComponent<BaseGem>();
-                other.GetComponentInParent<GridSystem>()
-                    .RemoveAndRespawnGem(baseGem, baseGem.CellCoordinateX, baseGem.CellCoordinateY);
-            } */
+                gem.GetComponentInParent<GridSystem>()
+                    .RespawnGem(gem, gem.CellCoordinateX, gem.CellCoordinateY);
+                
+                var gemTransform = gem.transform;
+                
+                gemTransform.DOKill();
+                gemTransform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+
+                _gems.Add(gem);
+                
+                //gem.transform.parent = transform;
+            }
+        }
+
+        private void StackGems()
+        {
+            for (int i = 0; i < _gems.Count; i++)
+            {
+                var gemPos = _gems[i].transform.position;
+                var stackPos = stackTransform.position;
+                
+                if (_gems.Count > 1 && i > 0)
+                {
+                    stackPos = _gems[i - 1].transform.position + new Vector3(0, 0.25f,0);
+                }
+                
+                gemPos = new Vector3(Mathf.Lerp(gemPos.x, stackPos.x, Time.deltaTime * gemStackLerpTime),
+                    Mathf.Lerp(gemPos.y, stackPos.y, Time.deltaTime * gemStackLerpTime),
+                    Mathf.Lerp(gemPos.z, stackPos.z, Time.deltaTime * gemStackLerpTime));
+
+                _gems[i].transform.position = gemPos;
+            }
+          
         }
     }
 }

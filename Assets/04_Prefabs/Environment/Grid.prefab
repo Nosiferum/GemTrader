@@ -44,3 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137fc4c7e781eee43835739663423ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridSizeX: 5
+  gridSizeY: 5
+  cellSize: 3
+  gemPrefabs:
+  - {fileID: 3314153761109234434, guid: b3c875c00503fa6409efc35d5791cdba, type: 3}
+  - {fileID: 5140761047020892607, guid: aed24074c72e91542bd7d596a389811f, type: 3}
+  - {fileID: 1577773916870278883, guid: cbc12084f67c73745af1645a357ad876, type: 3}

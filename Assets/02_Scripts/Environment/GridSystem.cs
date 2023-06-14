@@ -75,16 +75,13 @@ namespace GemTrader.Environment
             gem.transform.DOScale(1f, 4f).SetLink(gem.gameObject);
         }
 
-        public void RemoveAndRespawnGem(BaseGem gem, int x, int y)
+        public void RespawnGem(BaseGem gem, int x, int y)
         {
-            if (gem.isReadyToHarvest)
-            {
                 //it could be anything between x, y and z
                 gem.PickedUpScaleValue = gem.transform.localScale.x;
-                
-                Destroy(gem.gameObject);
+                gem.transform.parent = null;
+
                 CreateGem(x, y);
-            }
         }
     }
 }
