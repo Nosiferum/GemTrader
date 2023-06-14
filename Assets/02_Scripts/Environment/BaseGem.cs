@@ -1,5 +1,3 @@
-using System;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 namespace GemTrader.Environment
@@ -14,18 +12,7 @@ namespace GemTrader.Environment
 
        public int CellCoordinateX { get; set; }
        public int CellCoordinateY { get; set; }
-
-       protected GridSystem _gridSystem;
        
-       protected void Start()
-       {
-           _gridSystem = GetComponentInParent<GridSystem>();
-       }
-
-       public void RemoveGem()
-       {
-           _gridSystem.RemoveAndRespawnGem(this, CellCoordinateX, CellCoordinateY);
-       }
     }    
 }
 

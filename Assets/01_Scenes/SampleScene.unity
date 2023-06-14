@@ -216,22 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c3806f921fd154aa8414a3f60cd4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 5
+  forwardSpeed: 1
   horizontalSpeed: 5
---- !u!64 &299267269
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299267267}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6273420807233988889, guid: 9edd57aa3323023438fe800941204610, type: 3}
 --- !u!54 &299267270
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -243,11 +229,44 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!65 &299267272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299267267}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.681958, z: 1}
+  m_Center: {x: 0, y: 0.8409792, z: 0}
+--- !u!95 &299267274
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299267267}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96c384f6029059546bf1341edda39fae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +412,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339937720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -6.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -857,19 +876,19 @@ PrefabInstance:
         type: 3}
       propertyPath: gemPrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 4293757887493237159, guid: b3c875c00503fa6409efc35d5791cdba,
+      objectReference: {fileID: 3314153761109234434, guid: b3c875c00503fa6409efc35d5791cdba,
         type: 3}
     - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
         type: 3}
       propertyPath: gemPrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 5854650561273023258, guid: aed24074c72e91542bd7d596a389811f,
+      objectReference: {fileID: 5140761047020892607, guid: aed24074c72e91542bd7d596a389811f,
         type: 3}
     - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
         type: 3}
       propertyPath: gemPrefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 255898418085217350, guid: cbc12084f67c73745af1645a357ad876,
+      objectReference: {fileID: 1577773916870278883, guid: cbc12084f67c73745af1645a357ad876,
         type: 3}
     - target: {fileID: 6325551130459826597, guid: f94577a883213c944ba574c54e62d089,
         type: 3}

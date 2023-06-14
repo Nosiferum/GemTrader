@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace GemTrader.Environment
 {
@@ -60,13 +57,10 @@ namespace GemTrader.Environment
 
             gem.GetComponent<MeshFilter>().sharedMesh = baseGem.Model;
             //gem.transform.localScale = Vector3.zero;
-            
         }
-
         
         public void RemoveAndRespawnGem(BaseGem gem, int x, int y)
         {
-           
             Destroy(gem.gameObject);
             CreateGem(x, y);
         }
