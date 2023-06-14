@@ -8,9 +8,9 @@ namespace GemTrader.Environment
         [SerializeField] private int gridSizeY;
         [SerializeField] private float cellSize;
         [SerializeField] private BaseGem[] gemPrefabs;
-    
+
         private GameObject[,] _grid; //grid matrix
-        
+
         private void Awake()
         {
             CreateGrid();
@@ -19,13 +19,14 @@ namespace GemTrader.Environment
         private void CreateGrid()
         {
             _grid = new GameObject[gridSizeX, gridSizeY];
-    
+
             for (int x = 0; x < gridSizeX; x++)
             {
                 for (int y = 0; y < gridSizeY; y++)
                 {
-                    Vector3 cellPosition = new Vector3(x * cellSize, 0f, y * cellSize);
-                    
+                    Vector3 position = transform.position;
+                    Vector3 cellPosition = new Vector3(x * cellSize + position.x, 1f, y * cellSize + position.z);
+
                     GameObject cell = new GameObject("Cell")
                     {
                         //used object initializer to remove boilerplate code 
@@ -35,7 +36,7 @@ namespace GemTrader.Environment
                             parent = transform
                         }
                     };
-                    
+
                     _grid[x, y] = cell;
 
                     CreateGem(x, y);
@@ -58,7 +59,7 @@ namespace GemTrader.Environment
             gem.GetComponent<MeshFilter>().sharedMesh = baseGem.Model;
             //gem.transform.localScale = Vector3.zero;
         }
-        
+
         public void RemoveAndRespawnGem(BaseGem gem, int x, int y)
         {
             Destroy(gem.gameObject);
@@ -66,4 +67,3 @@ namespace GemTrader.Environment
         }
     }
 }
-
