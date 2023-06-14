@@ -1,3 +1,5 @@
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 namespace GemTrader.Environment
@@ -57,13 +59,32 @@ namespace GemTrader.Environment
             baseGem.CellCoordinateY = y;
 
             gem.GetComponent<MeshFilter>().sharedMesh = baseGem.Model;
-            //gem.transform.localScale = Vector3.zero;
+            
+            GrowGem(baseGem);
+        }
+        
+        void GrowGem(BaseGem gem)
+        {
+            gem.transform.localScale = Vector3.zero;
+            
+            gem.transform.DOScale(0.25f, 1f).SetLink(gem.gameObject).OnComplete(delegate
+            {
+                gem.isReadyToHarvest = true;
+            });
+
+            gem.transform.DOScale(1f, 4f).SetLink(gem.gameObject);
         }
 
         public void RemoveAndRespawnGem(BaseGem gem, int x, int y)
         {
-            Destroy(gem.gameObject);
-            CreateGem(x, y);
+            if (gem.isReadyToHarvest)
+            {
+                //it could be anything between x, y and z
+                gem.PickedUpScaleValue = gem.transform.localScale.x;
+                
+                Destroy(gem.gameObject);
+                CreateGem(x, y);
+            }
         }
     }
 }

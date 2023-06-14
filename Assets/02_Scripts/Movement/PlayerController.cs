@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using GemTrader.Environment;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ namespace GemTrader.Control
     {
         [SerializeField] private float verticalSpeed = 5f;
         [SerializeField] private float horizontalSpeed = 5f;
+
+        private List<BaseGem> _gems = new();
 
         private FloatingJoystick _floatingJoystick;
         private Rigidbody _rb;
@@ -69,14 +72,22 @@ namespace GemTrader.Control
             transform.rotation = Quaternion.LookRotation(forward, transform.up);
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
-            if (other.GetComponentInParent<GridSystem>())
+            if (other.TryGetComponent(out BaseGem gem))
+            {
+                other.GetComponentInParent<GridSystem>()
+                    .RemoveAndRespawnGem(gem, gem.CellCoordinateX, gem.CellCoordinateY);
+            }
+
+            //this commented code is more extensible however, the former one is more clean
+            
+            /*if (other.GetComponentInParent<GridSystem>())
             {
                 BaseGem baseGem = other.GetComponent<BaseGem>();
                 other.GetComponentInParent<GridSystem>()
                     .RemoveAndRespawnGem(baseGem, baseGem.CellCoordinateX, baseGem.CellCoordinateY);
-            }
+            } */
         }
     }
 }
