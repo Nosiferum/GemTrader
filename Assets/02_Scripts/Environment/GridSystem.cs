@@ -69,7 +69,7 @@ namespace GemTrader.Environment
             
             gem.transform.DOScale(0.25f, 1f).SetLink(gem.gameObject).OnComplete(delegate
             {
-                gem.isReadyToHarvest = true;
+                gem.IsReadyToHarvest = true;
             });
 
             gem.transform.DOScale(1f, 4f).SetLink(gem.gameObject);

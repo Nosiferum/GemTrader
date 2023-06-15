@@ -20,6 +20,8 @@ namespace GemTrader.Control
         private FloatingJoystick _floatingJoystick;
         private Rigidbody _rb;
         private Animator _animator;
+
+        private float goldSum;
         
         private static readonly int IsRunning = Animator.StringToHash("isRunning");
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
@@ -39,6 +41,21 @@ namespace GemTrader.Control
         private void FixedUpdate()
         {
             Move();
+        }
+
+        public void SellGems(Transform salePoint)
+        {
+            if (_gems.Count > 0)
+            {
+                BaseGem gem = _gems[^1];
+                
+                gem.transform.DOMove(salePoint.transform.position, 0.1f).SetLink(gem.gameObject).OnComplete(delegate
+                {
+                    goldSum += gem.GetSellPrice();
+                    _gems.Remove(gem);
+                    Destroy(gem.gameObject);
+                });
+            }
         }
 
         private void Move()
@@ -93,14 +110,16 @@ namespace GemTrader.Control
 
         private void AddGems(BaseGem gem)
         {
-            if (gem.isReadyToHarvest)
+            if (gem.IsReadyToHarvest)
             {
                 gem.GetComponentInParent<GridSystem>()
                     .RespawnGem(gem, gem.CellCoordinateX, gem.CellCoordinateY);
                 
-                var gemTransform = gem.transform;
+                Transform gemTransform = gem.transform;
                 
                 gemTransform.DOKill();
+                
+                //scaled down the gems to stack them easily on the back
                 gemTransform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
 
                 _gems.Add(gem);
@@ -113,8 +132,8 @@ namespace GemTrader.Control
         {
             for (int i = 0; i < _gems.Count; i++)
             {
-                var gemPos = _gems[i].transform.position;
-                var stackPos = stackTransform.position;
+                Vector3 gemPos = _gems[i].transform.position;
+                Vector3 stackPos = stackTransform.position;
                 
                 if (_gems.Count > 1 && i > 0)
                 {
@@ -127,7 +146,6 @@ namespace GemTrader.Control
 
                 _gems[i].transform.position = gemPos;
             }
-          
         }
     }
 }

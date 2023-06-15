@@ -101,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 6815808088975723693, guid: e41c38b3bc44d04469f62a191a351383,
         type: 3}
       propertyPath: <Name>k__BackingField
-      value: dsd
+      value: Green
       objectReference: {fileID: 0}
     - target: {fileID: 6815808088975723693, guid: e41c38b3bc44d04469f62a191a351383,
         type: 3}
@@ -109,5 +109,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4126542436946315128, guid: e9caca45ea7ee084aa79498e1fdc23a2,
         type: 3}
+    - target: {fileID: 6815808088975723693, guid: e41c38b3bc44d04469f62a191a351383,
+        type: 3}
+      propertyPath: <BasePrice>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e41c38b3bc44d04469f62a191a351383, type: 3}
