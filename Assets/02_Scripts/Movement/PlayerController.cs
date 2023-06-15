@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using GemTrader.Environment;
+using GemTrader.Managers;
 using UnityEngine;
 
 namespace GemTrader.Control
@@ -51,7 +52,8 @@ namespace GemTrader.Control
                 
                 gem.transform.DOMove(salePoint.transform.position, 0.1f).SetLink(gem.gameObject).OnComplete(delegate
                 {
-                    goldSum += gem.GetSellPrice();
+                    GameManager.Instance.AddGold(gem.GetSellPrice());
+                   
                     _gems.Remove(gem);
                     Destroy(gem.gameObject);
                 });

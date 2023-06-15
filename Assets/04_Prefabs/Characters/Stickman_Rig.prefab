@@ -1997,8 +1997,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.681958, z: 1}
-  m_Center: {x: 0, y: 0.8409792, z: 0}
+  m_Size: {x: 1, y: 2.193051, z: 0.71789503}
+  m_Center: {x: 0, y: 1.0854326, z: 0.0031373054}
 --- !u!95 &299267274
 Animator:
   serializedVersion: 4

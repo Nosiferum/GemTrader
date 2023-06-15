@@ -16,9 +16,9 @@ namespace GemTrader.Environment
        public bool IsReadyToHarvest { get; set; } = false;
 
 
-       public float GetSellPrice()
+       public int GetSellPrice()
        {
-           return BasePrice + PickedUpScaleValue * 100;
+           return (int) (BasePrice + PickedUpScaleValue * 100);
        }
 
     }    
