@@ -8,31 +8,31 @@ namespace GemTrader.UI
     {
         [SerializeField] private TextMeshProUGUI coinText;
 
-        private GameManager _gameManager;
+        private GoldManager _goldManager;
 
         private void Awake()
         {
-            _gameManager = FindObjectOfType<GameManager>();
+            _goldManager = FindObjectOfType<GoldManager>();
         }
 
         private void Start()
         {
-            coinText.text = _gameManager.TotalGold.ToString();
+            coinText.text = _goldManager.TotalGold.ToString();
         }
 
         private void UpdateCoinText()
         {
-            coinText.text = _gameManager.TotalGold.ToString();
+            coinText.text = _goldManager.TotalGold.ToString();
         }
 
         private void OnEnable()
         {
-            _gameManager.onMoneyTaken += UpdateCoinText;
+            _goldManager.onMoneyTaken += UpdateCoinText;
         }
 
         private void OnDisable()
         {
-            _gameManager.onMoneyTaken -= UpdateCoinText;
+            _goldManager.onMoneyTaken -= UpdateCoinText;
         }
     }
 }

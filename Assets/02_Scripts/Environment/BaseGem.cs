@@ -14,13 +14,11 @@ namespace GemTrader.Environment
        public int CellCoordinateY { get; set; }
        public float PickedUpScaleValue { private get; set; }
        public bool IsReadyToHarvest { get; set; } = false;
-
-
+       
        public int GetSellPrice()
        {
            return (int) (BasePrice + PickedUpScaleValue * 100);
        }
-
     }    
 }
 

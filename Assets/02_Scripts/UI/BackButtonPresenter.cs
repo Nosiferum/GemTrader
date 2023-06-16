@@ -5,7 +5,7 @@ namespace GemTrader.UI
 {
     public class BackButtonPresenter : MonoBehaviour
     {
-        [SerializeField] protected Canvas parentCanvas;
+        [SerializeField] protected Canvas responsibleCanvas;
 
         private Button _button;
 
@@ -16,7 +16,7 @@ namespace GemTrader.UI
 
         protected virtual void HandleCanvas()
         {
-            parentCanvas.gameObject.SetActive(false);
+            responsibleCanvas.gameObject.SetActive(false);
         }
 
         protected void OnEnable()
@@ -30,4 +30,3 @@ namespace GemTrader.UI
         }
     }
 }
-

@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace GemTrader.Managers
 {
-    public class GameManager : MonoBehaviour
+    public class GoldManager : MonoBehaviour
     {
         public int TotalGold { get; private set; }
 
-        public static GameManager Instance = null;
+        public static GoldManager Instance = null;
         public Action onMoneyTaken;
 
         private const string COIN_KEY = "coin";
@@ -23,7 +23,7 @@ namespace GemTrader.Managers
             TotalGold += amount;
             onMoneyTaken?.Invoke();
         }
-
+        
         private void InitManager()
         {
             if (Instance == null)

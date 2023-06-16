@@ -1945,6 +1945,7 @@ GameObject:
   - component: {fileID: 299267272}
   - component: {fileID: 299267274}
   - component: {fileID: 299267268}
+  - component: {fileID: 7252626329597593381}
   m_Layer: 0
   m_Name: Stickman_Rig
   m_TagString: Untagged
@@ -2033,6 +2034,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalSpeed: 5
   horizontalSpeed: 5
+--- !u!114 &7252626329597593381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479531809223561302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e91d6fa0c1f22c4b8147d4137513e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   stackTransform: {fileID: 6822965958348303447}
   gemStackLerpTime: 30
 --- !u!1 &7571370277738983233

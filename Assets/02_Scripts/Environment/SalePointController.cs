@@ -1,4 +1,3 @@
-using System;
 using GemTrader.Control;
 using UnityEngine;
 
@@ -8,9 +7,9 @@ namespace GemTrader.Environment
     {
         private void OnTriggerStay(Collider other)
         {
-            if (other.TryGetComponent(out PlayerController playerController))
+            if (other.TryGetComponent(out GemController gemController))
             {
-                playerController.SellGems(transform);
+                gemController.SellGems(transform);
             }
         }
     }

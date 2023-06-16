@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7316147058828188117}
   - component: {fileID: 4786442075227417887}
   - component: {fileID: -4600362314343697028}
-  - component: {fileID: 6815808088975723693}
+  - component: {fileID: 4522181192307778985}
   m_Layer: 0
   m_Name: GemBaseType
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.497228, y: 1.5119847, z: 1.497228}
   m_Center: {x: 0, y: -0.21877271, z: 0}
---- !u!114 &6815808088975723693
+--- !u!114 &4522181192307778985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -48,6 +48,6 @@ MonoBehaviour:
   gridSizeY: 5
   cellSize: 3
   gemPrefabs:
-  - {fileID: 3314153761109234434, guid: b3c875c00503fa6409efc35d5791cdba, type: 3}
-  - {fileID: 5140761047020892607, guid: aed24074c72e91542bd7d596a389811f, type: 3}
-  - {fileID: 1577773916870278883, guid: cbc12084f67c73745af1645a357ad876, type: 3}
+  - {fileID: 5596465551387146758, guid: b3c875c00503fa6409efc35d5791cdba, type: 3}
+  - {fileID: 2811152588837001403, guid: aed24074c72e91542bd7d596a389811f, type: 3}
+  - {fileID: 8480840538318772199, guid: cbc12084f67c73745af1645a357ad876, type: 3}

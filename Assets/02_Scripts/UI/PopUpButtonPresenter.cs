@@ -1,6 +1,3 @@
-using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 namespace GemTrader.UI
 {
@@ -8,7 +5,7 @@ namespace GemTrader.UI
     {
         protected override void HandleCanvas()
         {
-            parentCanvas.gameObject.SetActive(true);
+            responsibleCanvas.gameObject.SetActive(true);
         }
     }
 
