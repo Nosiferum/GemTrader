@@ -20,6 +20,7 @@ namespace GemTrader.Control
         public Action onGemAdded;
 
         private readonly List<BaseGem> _gems = new();
+        private static readonly string GemSaveLocation = "/GemCount.dat";
 
         private void Awake()
         {
@@ -119,7 +120,7 @@ namespace GemTrader.Control
         private void SaveGems()
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            string savePath = Application.persistentDataPath + "/GemCount.dat";
+            string savePath = Application.persistentDataPath + GemSaveLocation;
             FileStream fileStream = File.Create(savePath);
             formatter.Serialize(fileStream, GemCountDict);
             fileStream.Close();
@@ -127,7 +128,7 @@ namespace GemTrader.Control
 
         private void LoadGems()
         {
-            string savePath = Application.persistentDataPath + "/GemCount.dat";
+            string savePath = Application.persistentDataPath + GemSaveLocation;
             
             if (!File.Exists(savePath)) return;
             
