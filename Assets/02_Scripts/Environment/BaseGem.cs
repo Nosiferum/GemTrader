@@ -5,9 +5,9 @@ namespace GemTrader.Environment
     //an abstraction of gem concept to future-proof the extensibility 
     public abstract class BaseGem : MonoBehaviour
     { 
-       [field: SerializeField] public string Name { get; private set; }
+       [field: SerializeField] public string GemName { get; private set; }
        [field: SerializeField] public int BasePrice { get; private set; }
-       [field: SerializeField] public Texture2D Icon { get; private set; }
+       [field: SerializeField] public Sprite Icon { get; private set; }
        [field: SerializeField] public Mesh Model { get; private set; }
 
        public int CellCoordinateX { get; set; }

@@ -85,7 +85,7 @@ namespace GemTrader.Control
 
         private void ManageGemDict(BaseGem gem)
         {
-            string gemName = gem.Name;
+            string gemName = gem.GemName;
 
             if (GemCountDict.ContainsKey(gemName))
             {

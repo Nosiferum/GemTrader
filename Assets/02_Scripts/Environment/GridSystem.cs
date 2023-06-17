@@ -18,7 +18,7 @@ namespace GemTrader.Environment
             CreateGrid();
         }
 
-        private void CreateGrid()
+        public void CreateGrid()
         {
             _grid = new GameObject[gridSizeX, gridSizeY];
 

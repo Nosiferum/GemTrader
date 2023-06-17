@@ -26,10 +26,16 @@ PrefabInstance:
         type: 3}
       propertyPath: <Icon>k__BackingField
       value: 
-      objectReference: {fileID: 2800000, guid: bcc287608ba3ba746b5152b88fa2a908, type: 3}
+      objectReference: {fileID: 21300000, guid: bcc287608ba3ba746b5152b88fa2a908,
+        type: 3}
     - target: {fileID: 4522181192307778985, guid: e41c38b3bc44d04469f62a191a351383,
         type: 3}
       propertyPath: <Name>k__BackingField
+      value: Yellow Gem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522181192307778985, guid: e41c38b3bc44d04469f62a191a351383,
+        type: 3}
+      propertyPath: <GemName>k__BackingField
       value: Yellow Gem
       objectReference: {fileID: 0}
     - target: {fileID: 4522181192307778985, guid: e41c38b3bc44d04469f62a191a351383,

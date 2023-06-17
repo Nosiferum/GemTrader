@@ -1,44 +1,59 @@
 using GemTrader.Control;
+using GemTrader.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GemTrader.UI
 {
     public class PopupPresenter : MonoBehaviour
     {
-        [Header("Collected Sums")] [SerializeField]
-        private TextMeshProUGUI collectedSum1;
+        [SerializeField] private ContainerItem containerItemTemplate;
 
-        [SerializeField] private TextMeshProUGUI collectedSum2;
-        [SerializeField] private TextMeshProUGUI collectedSum3;
-
+        private GridLayoutGroup _container;
         private GemController _gemController;
+        private GemTypeDataHolder _gemTypeDataHolder;
+        private GameObject[] _createdContainerItems;
 
         private void Awake()
         {
             _gemController = FindObjectOfType<GemController>();
+            _container = GetComponentInChildren<GridLayoutGroup>();
+            _gemTypeDataHolder = Resources.Load<GemTypeDataHolder>("GemTypeDataHolder");
         }
 
         private void Start()
         {
+            _createdContainerItems = InstantiateContainerItems();
             gameObject.SetActive(false);
+        }
+
+        private GameObject[] InstantiateContainerItems()
+        {
+            GameObject[] containerItems = new GameObject[_gemTypeDataHolder.gems.Length];
+
+            for (int i = 0; i < _gemTypeDataHolder.gems.Length; i++)
+            {
+                GameObject containerItem = Instantiate(containerItemTemplate.gameObject, _container.transform);
+                containerItems[i] = containerItem;
+                
+                containerItem.transform.GetChild(0).GetComponent<Image>().sprite = _gemTypeDataHolder.gems[i].Icon;
+                containerItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>()
+                    .text = _gemTypeDataHolder.gems[i].GemName;
+            }
+
+            return containerItems;
         }
 
         private void HandlePopupText()
         {
-            if (_gemController.GemCountDict.TryGetValue("Green Gem", out int value))
+            for (int i = 0; i < _createdContainerItems.Length; i++)
             {
-                collectedSum1.text = $"Collected Sum: {value}";
-            }
-
-            if (_gemController.GemCountDict.TryGetValue("Pink Gem", out int value2))
-            {
-                collectedSum2.text = $"Collected Sum: {value2}";
-            }
-
-            if (_gemController.GemCountDict.TryGetValue("Yellow Gem", out int value3))
-            {
-                collectedSum3.text = $"Collected Sum: {value3}";
+                if (_gemController.GemCountDict.TryGetValue(_gemTypeDataHolder.gems[i].GemName, out int value))
+                {
+                    _createdContainerItems[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>()
+                        .text = $"Collected Sum: {value}";
+                }
             }
         }
 
